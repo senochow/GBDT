@@ -10,16 +10,17 @@
 * File:    gbdt_main.cpp
 */
 #include "gbdt.h"
+#include <iostream>
 #include "./utils/utils.h"
 #include "./utils/config.h"
 
-using namespace gbdt {
+namespace gbdt {
 
 class GBDTLearnTask {
 public:
 	int run(int argc, char** argv) {
 		// 1. set param
-		utils::ConfigIterator conf_iter(argv[1]);
+		ConfigIterator conf_iter(argv[1]);
 		while (conf_iter.Next()) {
 			this->SetParam(conf_iter.name(), conf_iter.val());
 		}
@@ -63,16 +64,14 @@ private:
 } // namespace gbdt
 
 void info() {
-
-
+    std::cout << "Config file" << std::endl;
 }
 int main(int argc, char** argv) {
     if (argc < 2) {
         info();
         return -1;
     }
-    int i = 0;
-    GBDTLearnTask gbdt_task;
+    gbdt::GBDTLearnTask gbdt_task;
     gbdt_task.run(argc, argv);
     return 0;
 }

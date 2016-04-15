@@ -22,7 +22,7 @@ class GBDT {
         double bias;
         double shrinkage;
     public:
-        void GBDT();
+        GBDT();
         void train();
         void Predict();
         void SetParam(const char* name, const char* val);

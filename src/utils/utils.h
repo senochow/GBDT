@@ -53,9 +53,8 @@ typedef __int64 int64_t;
 #include <inttypes.h>
 #endif
 
-namespace xgboost {
+namespace gbdt {
 /*! \brief namespace for helper utils of the project */
-namespace utils {
 
 /*! \brief error message buffer length */
 const int kPrintBuffer = 1 << 12;
@@ -156,7 +155,6 @@ inline std::FILE *FopenCheck(const char *fname, const char *flag) {
   Check(fp != NULL, "can not open file \"%s\"\n", fname);
   return fp;
 }
-}  // namespace utils
 // easy utils that can be directly acessed in xgboost
 /*! \brief get the beginning address of a vector */
 template<typename T>
@@ -185,7 +183,8 @@ inline const char* BeginPtr(const std::string &str) {
   return &str[0];
 }
 
-inline void trim(string & s) {
+inline void trim(std::string & s) {
+  if (s.empty()) return;
   s.erase(s.find_last_not_of(' ')+1);
   s.erase(0, s.find_first_not_of(' '));
   return;
