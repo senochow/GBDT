@@ -21,10 +21,11 @@ class GBDT {
         std::vector<CART> trees;
         double bias;
         double shrinkage;
-        size_t iter_num;
     public:
-        GBDT(){}
-
+        void GBDT();
+        void train();
+        void Predict();
+        void SetParam(const char* name, const char* val);
 };// class GBDT
 } // namespace gbdt
 
