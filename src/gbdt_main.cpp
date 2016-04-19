@@ -13,6 +13,7 @@
 #include <iostream>
 #include "./utils/utils.h"
 #include "./utils/config.h"
+#include "data.h"
 
 namespace gbdt {
 
@@ -46,7 +47,10 @@ public:
 	}
 private:
 	void TaskTrain() {
-		
+		DataVector data;
+		if (LoadDataFromFile(train_file, data)) {
+			
+		}
 	}
 	void TaskPredict() {
 		

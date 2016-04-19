@@ -10,5 +10,7 @@
 * File:    data.cpp
 */
 #include <iostream>
-using namespace std;
+#include "data.h"
+
+
 
